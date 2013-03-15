@@ -3,12 +3,12 @@
   <%= render :partial => "layouts/head" %>
   <body class="<%= params[:controller] %> <%= params[:controller] %>-<%= params[:action] %>">
     <div id="small-title">
-      <%= link_to(image_tag("osm_logo.png", :size => "16x16", :alt => t('layouts.logo.alt_text')), root_path) %>
+      <%= link_to(image_tag("opm_logo.png", :size => "16x16", :alt => t('layouts.logo.alt_text')), root_path) %>
       <h1><%= t 'layouts.project_name.h1' %></h1>
     </div>
         <div id="left">
       <div id="logo">
-        <%= link_to(image_tag("osm_logo.png",
+        <%= link_to(image_tag("opm_logo.png",
           :size => "120x120",
           :alt => t('layouts.logo.alt_text')),
           root_path) %>
@@ -21,10 +21,11 @@
         <p><%= t 'layouts.intro_1' %></p>
         <p>
         <%= t 'layouts.intro_2_html',
-          :download => link_to(t('layouts.intro_2_download'), "http://planet.openstreetmap.org/"),
-          :use => link_to(t('layouts.intro_2_use'), t('layouts.intro_2_use_url')),
-          :license => link_to(t('layouts.intro_2_license'), copyright_path),
-          :create_account => link_to(t('layouts.intro_2_create_account'), user_new_path)
+          :download => link_to(t('layouts.intro_2_download'), "http://download.ual.berkeley.edu/"),
+          :create_account => link_to(t('layouts.intro_2_create_account'), user_new_path),
+          :join_the_list => link_to(t('layouts.intro_2_join_the_list'),
+                            "https://calmail.berkeley.edu/manage/list/listinfo/parceldata@lists.berkeley.edu"),
+          :public_domain => link_to(t('layouts.intro_2_public_domain'), "http://en.wikipedia.org/wiki/Public_domain")
         %>
         </p>
       </div>
@@ -44,6 +45,7 @@
       </div>
       <% end %>
       <ul id="left_menu" class="left_menu">
+        <% if false %>
         <li>
           <h4><%= t'layouts.help' %></h4>
           <ul>
@@ -68,17 +70,20 @@
             :title => t('layouts.gps_traces_tooltip')
           } %></h4>
         </li>
+        <% end %>
         <%= yield :left_menu %>
       </ul>
+      <% if false %>
       <a title="<%= h(t('layouts.make_a_donation.title')) %>" href="http://donate.openstreetmap.org/" class="donate">
         <span class='donate-icon'></span><p><%= h(t('layouts.make_a_donation.text')) %></p>
       </a>
+      <% end %>
       <div class='sidebar-copy'>
         <p class='deemphasize'><%= t 'layouts.partners_html',
-          :ucl => link_to(t('layouts.partners_ucl'), "http://www.vr.ucl.ac.uk"),
-          :ic => link_to(t('layouts.partners_ic'), "http://www.imperial.ac.uk/"),
-          :bytemark => link_to(t('layouts.partners_bytemark'), "http://www.bytemark.co.uk"),
-          :partners => link_to(t('layouts.partners_partners'), t('layouts.partners_url')) %>
+          :ual => link_to(t('layouts.partners_ual'), "http://www.ual.berkeley.edu"),
+          :ucb => link_to(t('layouts.partners_ucb'), "http://www.berkeley.edu"),
+          :osm => link_to(t('layouts.partners_osm'), "http://www.openstreetmap.org")
+            %>
         </p>
       </div>
     </div>

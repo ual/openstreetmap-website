@@ -929,9 +929,9 @@ en:
   layouts:
     project_name:
       # in <title>
-      title: OpenStreetMap
+      title: OpenParcelMap
       # in <h1>
-      h1: OpenStreetMap
+      h1: OpenParcelMap
     logo:
       alt_text: OpenStreetMap logo
     welcome_user_link_tooltip: Your user page
@@ -959,22 +959,22 @@ en:
     user_diaries: User Diaries
     user_diaries_tooltip: View user diaries
     edit_with: Edit with %{editor}
-    tag_line: The Free Wiki World Map
-    intro_1: "OpenStreetMap is a free worldwide map, created by people like you."
-    intro_2_html: "The data is free to %{download} and %{use} under its %{license}. %{create_account} to improve the map."
-    intro_2_create_account: "Create a user account"
+    tag_line: An Open Parcel Dataset
+    intro_1: "OpenParcelMap is a free parcel data set built mostly from government data sources."
+    intro_2_html: "All of the data in this dataset is in the <b>%{public_domain}</b> in the United States.  This may change in the future as we learn more about collecting parcel data.  You are free to %{download} and use the data.  If you want to help improve the map, %{create_account} and %{join_the_list}."
+    intro_2_create_account: "create a user account"
     intro_2_license: "open license"
     intro_2_use: "use"
     intro_2_download: "download"
     intro_2_use_url: "http://wiki.openstreetmap.org/wiki/Using_OpenStreetMap"
-    partners_html: "Hosting is supported by %{ucl}, %{ic} and %{bytemark}, and other %{partners}."
-    partners_ucl: "the UCL VR Centre"
-    partners_ic: "Imperial College London"
-    partners_bytemark: "Bytemark Hosting"
-    partners_partners: "partners"
-    partners_url: "http://wiki.openstreetmap.org/wiki/Partners"
-    osm_offline: "The OpenStreetMap database is currently offline while essential database maintenance work is carried out."
-    osm_read_only: "The OpenStreetMap database is currently in read-only mode while essential database maintenance work is carried out."
+    intro_2_join_the_list: "join the mailinglist"
+    intro_2_public_domain: "PUBLIC DOMAIN"
+    partners_html: "This project is an initiative of the %{ual} at %{ucb}, and is (obviously?) inspired by %{osm}."
+    partners_ual: "Urban Analytics Lab"
+    partners_ucb: "U.C. Berkeley"
+    partners_osm: "OpenStreetMap"
+    osm_offline: "The OpenParcelMap database is currently offline while essential database maintenance work is carried out."
+    osm_read_only: "The OpenParcelMap database is currently in read-only mode while essential database maintenance work is carried out."
     donate: "Support OpenStreetMap by %{link} to the Hardware Upgrade Fund."
     donate_link_text: donating
     help: Help
@@ -994,7 +994,7 @@ en:
     foundation_title: The OpenStreetMap Foundation
     make_a_donation:
       title: Support OpenStreetMap with a monetary donation
-      text: Make a Donation
+      text: Donate to OpenStreetMap
 
   license_page:
     foreign:
@@ -1290,7 +1290,7 @@ en:
       where_am_i: "Where am I?"
       where_am_i_title: Describe the current location using the search engine
       submit_text: "Go"
-      search_help: "examples: 'Alkmaar', 'Regent Street, Cambridge', 'CB2 5AQ', or 'post offices near Lünen' <a href='http://wiki.openstreetmap.org/wiki/Search'>more examples...</a>"
+      search_help: "For example: 'San Francisco, CA', etc."
     key:
       map_key: "Map Key"
       map_key_tooltip: "Key for the map"
@@ -1652,7 +1652,7 @@ en:
     terms:
       title: "Contributor terms"
       heading: "Contributor terms"
-      read and accept: "Please read the agreement below and press the agree button to confirm that you accept the terms of this agreement for your existing and future contributions."
+      read and accept html: "To contribute to the OpenParcelMap, you must agree to make all of your contributions to be in the <b>%{public_domain}</b>."
       consider_pd: "In addition to the above agreement, I consider my contributions to be in the Public Domain"
       consider_pd_why: "what's this?"
       consider_pd_why_url: http://www.osmfoundation.org/wiki/License/Why_would_I_want_my_contributions_to_be_public_domain
