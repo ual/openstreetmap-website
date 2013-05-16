@@ -59,20 +59,6 @@ var layers = [
     name: I18n.t("javascripts.map.base.standard")
   },
   {
-    klass: L.OSM.CycleMap,
-    attribution: "Tiles courtesy of <a href='http://www.opencyclemap.org/' target='_blank'>Andy Allan</a>",
-    keyid: "cyclemap",
-    layerCode: "C",
-    name: I18n.t("javascripts.map.base.cycle_map")
-  },
-  {
-    klass: L.OSM.TransportMap,
-    attribution: "Tiles courtesy of <a href='http://www.opencyclemap.org/' target='_blank'>Andy Allan</a>",
-    keyid: "transportmap",
-    layerCode: "T",
-    name: I18n.t("javascripts.map.base.transport_map")
-  },
-  {
     klass: L.OSM.MapQuestOpen,
     attribution: "Tiles courtesy of <a href='http://www.mapquest.com/' target='_blank'>MapQuest</a> <img src='http://developer.mapquest.com/content/osm/mq_logo.png'>",
     keyid: "mapquest",
@@ -107,7 +93,49 @@ function createMap(divName, options) {
     layersControl.addBaseLayer(layers[i].layer, layers[i].name);
   }
 
-  layers[0].layer.addTo(map);
+  /* Add mapquest aerial as basemap */
+  aerial_layer = {
+    attribution: "Tiles courtesy of <a href='http://www.mapquest.com/' target='_blank'>MapQuest</a> <img src='http://developer.mapquest.com/content/osm/mq_lo\
+go.png'>",
+    keyid: "mapquestaerial",
+    layerCode: "M",
+    name: "Mapquest Aerial",
+    subdomains: "1234"
+  }
+
+  aerial_layer.layer = new L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png',
+                                       aerial_layer);
+  layersControl.addBaseLayer(aerial_layer.layer, aerial_layer.name);
+  aerial_layer.layer.addTo(map);
+
+  /* Add parcel layer as a tile layer */
+  parcel_layer = {
+    attribution: "OpenParcelMap!",
+    keyid: "parcelmap",
+    layerCode: "P",
+    name: "Parcels",
+    opacity: 0.8
+  }
+  parcel_layer.layer = new L.tileLayer('http://jerusalem.ual.berkeley.edu/tiles/{z}/{x}/{y}.png',
+                                       parcel_layer)
+  layersControl.addOverlay(parcel_layer.layer, parcel_layer.name);
+  parcel_layer.layer.addTo(map);
+
+  $("#" + divName).on("resized", function () {
+    map.invalidateSize();
+  });
+
+  /* Add label layer as a tile layer */
+  label_layer = {
+    attribution: "Stamen Labels, Data CC-By-SA OSM Contributors.",
+    keyid: "stamenlabels",
+    layerCode: "S",
+    name: "Labels",
+  }
+  label_layer.layer = new L.tileLayer('http://{s}.tile.stamen.com/toner-labels/{z}/{x}/{y}.png',
+                                       label_layer)
+  layersControl.addOverlay(label_layer.layer, label_layer.name);
+  label_layer.layer.addTo(map);
 
   $("#" + divName).on("resized", function () {
     map.invalidateSize();
